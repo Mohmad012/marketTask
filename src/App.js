@@ -1,43 +1,13 @@
-import React, { useState, useEffect } from "react";
-
-
-const useAudio = url => {
-  const [audio] = useState(new Audio(url));
-  const [playing, setPlaying] = useState(false);
-
-  const toggle = () => setPlaying(!playing);
-
-  useEffect(() => {
-      playing ? audio.play() : audio.pause();
-    },
-    [playing]
-  );
-
-  useEffect(() => {
-    audio.addEventListener('ended', () => setPlaying(false));
-    return () => {
-      audio.removeEventListener('ended', () => setPlaying(false));
-    };
-  }, []);
-
-  return [playing, toggle];
-};
-
-const Player = ({ url="https://resolvehttp.herokuapp.com/?_url=https://stream.radiojar.com/8s5u5tpdtwzuv" }) => {
-  const [playing, toggle] = useAudio(url);
-
-  return (
-    <div>
-      <button className="BtnAudio btn" onClick={toggle}>{playing ? "Pause" : "Play"}</button>
-    </div>
-  );
-};
+import MainBx from "./container/MainBx"
+import Title from "./components/Title";
+import "./assets/style.css"
 
 
 function App() {
   return (
     <div className="App">
-      <Player />
+      <Title text="كل الطلبات المسبقة" />
+      <MainBx />
     </div>
   );
 }

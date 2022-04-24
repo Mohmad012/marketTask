@@ -1,4 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Almarai:wght@400;800&display=swap");
+html {
+  direction: rtl;
+}
+
+body {
+  background-color: var(--color-DeepGreen);
+}
 
 * {
   margin: 0;
@@ -8,9 +14,10 @@
 :root {
   --color-bg: #1c1a23;
   --color-hover: #2f2b3b;
-  --color-green: #4ef59d;
+  --color-DeepGreen: #1D716A;
+  --color-whiGre: #2DB0A6;
   --color-yellow: #ffcc70;
-  --color-red: #fb4d8d;
+  --color-red: #EC2424;
   --color-red-dark: #c5396d;
   --color-violet: #756c93;
   --color-text: #dddce3;
@@ -19,67 +26,422 @@
 
   --shadow-card: 6px 6px 15px rgba(0, 0, 0, 0.3),
     -5px -5px 12px rgba(117, 108, 147, 0.1);
-
-  --font-family: "Almarai", "Segoe UI", sans-serif;
 }
 
-body {
-  margin: 0;
-  min-height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
-  font-family: var(--font-family);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-html {
-  direction: rtl;
-}
-
-body {
-  background-color: var(--color-bg);
+.App .Sec-Title{
+  text-align: center;
+  padding-top: 15px;
   color: var(--color-text);
-
-  background-color: #4158d0;
-  background-image: linear-gradient(
-    43deg,
-    #b8c1ee 0%,
-    #f0b9ec 46%,
-    #fdefd3 100%
-  );
-
-  background-repeat: no-repeat;
-  background-size: cover;
+  margin-bottom: 5rem;
 }
 
-.btn {
-  min-height: 3rem;
-  font-size: 1.25rem;
-  font-family: inherit;
-  padding: 0.5rem 1.5rem;
-  background-color: var(--color-red);
-  cursor: pointer;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  outline: none;
-  transition: all 0.2s;
-}
-.btn:hover {
-  background-color: var(--color-red-dark);
-  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
-}
-.btn:active {
-  box-shadow: none;
-}
-.btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+/* Start MainBx Style */
+.App .bx-MainBx{
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-radius: 10px 50px 0 0;
+  background-color: #E9EBEF;
+  min-height: 800px;
 }
 
-.BtnAudio{
-  margin: 50% auto;
+@media (max-width:992px) {
+  .App .bx-MainBx{
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+.App .bx-MainBx .overLay{
+  visibility: visible;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #0000009c;
+  z-index: -1;
+  opacity: 0;
+  overflow: hidden;
+  transition: opacity .5s , z-index 0.5s;
+}
+
+.App .bx-MainBx .overLay.active{
+  z-index: 10;
+  opacity: 1;
+}
+
+/* End MainBx Style */
+
+/* Start OrdersList Style */
+
+.App .bx-MainBx .bx-OrdersList {
+  background-color: #E8F8F7;
+  width: 35%;
+  order: 2;
+  border-radius: 10px 0 0 0;
+  position: relative;
+  transition: left .5s;
+}
+
+.App .bx-MainBx .bx-OrdersList .bx-btn-line {
+  display: none;
+}
+
+@media (max-width:992px) {
+  .App .bx-MainBx .bx-OrdersList .bx-btn-line {
+    position: absolute;
+    top: 30px;
+    right: -25px;
+    width: 25px;
+    height: 25px;
+    background-color: #fff;
+    display: block;
+    border: none;
+    cursor: pointer;
+  } 
+}
+
+@media (max-width:992px) {
+  .App .bx-MainBx .bx-OrdersList {
+    background-color: #E8F8F7;
+    width: 40%;
+    order: 2;
+    border-radius: 10px 0 0 0;
+    position: absolute;
+    top: 0;
+    left: -40%;
+    z-index: 100;
+    height: 100%;
+  }
+}
+
+@media (max-width:700px) {
+  .App .bx-MainBx .bx-OrdersList {
+    width: 70%;
+    left: -70%;
+  }
+}
+
+@media (max-width:320px) {
+  .App .bx-MainBx .bx-OrdersList {
+    width: 90%;
+    left: -90%;
+  }
+}
+
+.App .bx-MainBx .bx-OrdersList.active{
+  left: 0%;
+}
+
+.App .bx-MainBx .bx-OrdersList .bx-OrdersTitle {
+  background-color: #13A69A;
+  padding: 20px;
+}
+
+.App .bx-MainBx .bx-OrdersList .bx-OrdersTitle .OrdersTitle {
+  background-color: #fff;
+  width: 100%;
   display: block;
+  padding: 15px 0px;
+  text-align: center;
+  border-radius: 10px;
 }
+
+.App .bx-MainBx .bx-OrdersList .bx-summeryOrder {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.App .bx-MainBx .bx-OrdersList .bx-summeryOrder .bx-save{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.App .bx-MainBx .bx-OrdersList .bx-summeryOrder .bx-save span{
+  color: red;
+}
+
+.App .bx-MainBx .bx-OrdersList .order-ItemDetials{
+  padding: 15px;
+}
+
+.App .bx-MainBx .bx-OrdersList .order-ItemDetials p{
+  text-align: center;
+}
+
+.App .bx-MainBx .bx-OrdersList .orders-nums{
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.App .bx-MainBx .bx-OrdersList hr {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.App .bx-MainBx .bx-OrdersList .orders-total{
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.App .bx-MainBx .bx-OrdersList .orders-total .currency{
+  color: var(--color-DeepGreen);
+  margin-right: 5px;
+}
+
+.App .bx-MainBx .bx-OrdersList .orders-OrdersAction {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.App .bx-MainBx .bx-OrdersList .order-ItemDetials .bx-itemDetials {
+  width: 100%;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  border-radius: 15px;
+  align-items: center;
+  padding: 10px 15px;
+}
+
+.App .bx-MainBx .bx-OrdersList .order-ItemDetials .bx-itemDetials img {
+  max-width: 25px;
+  padding: 1px 0;
+}
+
+.App .bx-MainBx .bx-OrdersList .order-ItemDetials .bx-itemDetials .num{
+  color: var(--color-DeepGreen);
+  order: 2;
+}
+
+.App .bx-MainBx .bx-OrdersList .order-ItemDetials .bx-itemDetials .bx-edit-num{
+  order: 2;
+  position: relative;
+  width: 35px;
+}
+
+.App .bx-MainBx .bx-OrdersList .order-ItemDetials .bx-itemDetials .bx-edit-num .edit-num {
+  color: #b1b1b1;
+  text-align: center;
+  border: 1px solid #b1b1b1;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+  outline: none;
+}
+
+.App .bx-MainBx .bx-OrdersList .order-ItemDetials .bx-itemDetials .bx-edit-num .edit-num.active{
+  border:2px solid red;
+}
+
+.App .bx-MainBx .bx-OrdersList .order-ItemDetials .bx-itemDetials .bx-edit-num .edit-num-cir {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #FFAA00;
+  right: -2px;
+  top: -2px;
+  border-radius: 50%;
+}
+
+.App .bx-MainBx .bx-OrdersList .order-ItemDetials .bx-itemDetials .bx-detials{
+  flex: 2;
+  display: flex;
+  gap: 1rem;
+}
+
+.App .bx-MainBx .bx-OrdersList .order-ItemDetials .bx-itemDetials .bx-detials .detials{
+  order: 1;
+}
+
+.App .bx-MainBx .bx-OrdersList .order-ItemDetials .bx-itemDetials .bx-detials .detials h3{
+  color: var(--color-dark);
+  margin-bottom: 0.5rem;
+}
+
+.App .bx-MainBx .bx-OrdersList .order-ItemDetials .bx-itemDetials .bx-detials .detials span{
+  color:#FFC655;
+}
+
+.App .bx-MainBx .bx-OrdersList .orders-OrdersAction .btn-OrdersAction {
+  display: block;
+  border: none;
+  outline: none;
+  padding: 26px 20px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.App .bx-MainBx .bx-OrdersList .orders-OrdersAction .btn-OrdersAction.red{
+  background-color: var(--color-red);
+}
+
+.App .bx-MainBx .bx-OrdersList .orders-OrdersAction .btn-OrdersAction.green{
+  background-color: var(--color-DeepGreen);
+}
+
+.App .bx-MainBx .bx-OrdersList .bx-summeryOrder button {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 5px 15px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.App .bx-MainBx .bx-OrdersList .bx-summeryOrder button.edit{
+  background-color: #FFAA00;
+}
+
+.App .bx-MainBx .bx-OrdersList .bx-summeryOrder button.save{
+  background-color: var(--color-DeepGreen);
+}
+
+.App .bx-MainBx .bx-OrdersList .bx-summeryOrder button img{
+  max-width: 20px;
+}
+
+/* End OrdersList Style */
+
+/* Start ListItems Style */
+.App .bx-MainBx .bx-ListItems{
+  width: 85%;
+  order: 1;
+  padding: 10px;
+  overflow: hidden;
+  padding-right: 25px;
+}
+
+@media (max-width: 992px) {
+  .App .bx-MainBx .bx-ListItems{
+    width: 100%;
+  }
+}
+
+.App .bx-MainBx .bx-ListItems .sec-SearchBx{
+  position: relative;
+}
+
+.App .bx-MainBx .bx-ListItems .sec-SearchBx .bx-SearchBx{
+  padding-right: 0.3rem;
+  margin-top: 1rem;
+}
+
+.App .bx-MainBx .bx-ListItems .sec-SearchBx .sec-SearchBx{
+  width: 80%;
+  height: 50px;
+}
+
+.App .bx-MainBx .bx-ListItems .sec-SearchBx .Search{
+  border: none;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.App .bx-MainBx .bx-ListItems .sec-SearchBx img{
+  position: absolute;
+  top: 14px;
+  left: 10px;
+}
+
+.App .bx-MainBx .bx-ListItems .bx-ItemProd {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 5rem;
+}
+
+
+.App .bx-MainBx .bx-ListItems .bx-ItemProd .bx-item {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  height: 300px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 5px;
+  justify-content: space-between;
+}
+
+.App .bx-MainBx .bx-ListItems .bx-ItemProd .bx-item-up{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.App .bx-MainBx .bx-ListItems .bx-ItemProd .bx-item-up .kal{
+  direction: ltr;
+  color: var(--color-whiGre);
+  background-color: #E8F8F7;
+  padding: 4px 3px;
+}
+
+.App .bx-MainBx .bx-ListItems .bx-ItemProd .bx-item-med {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--color-bg);
+}
+
+.App .bx-MainBx .bx-ListItems .bx-ItemProd .bx-item-med img{
+  max-width: 35%;
+}
+
+.App .bx-MainBx .bx-ListItems .bx-ItemProd .bx-item-med h3 {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.App .bx-MainBx .bx-ListItems .bx-ItemProd .bx-item-med .quantity .num{
+  color: var(--color-DeepGreen);
+  padding-right: 8px;
+}
+
+.App .bx-MainBx .bx-ListItems .bx-ItemProd .bx-item-down{
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.App .bx-MainBx .bx-ListItems .bx-ItemProd .bx-item-down .ico-add svg{
+  background-color: var(--color-DeepGreen);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.App .bx-MainBx .bx-ListItems .bx-ItemProd .bx-item-down .ico-add svg circle{
+  color: var(--color-DeepGreen);
+}
+
+.App .bx-MainBx .bx-ListItems .bx-ItemProd .bx-item-down .ico-add svg line{
+  color: #dddce3;
+}
+
+.App .bx-MainBx .bx-ListItems .bx-ItemProd .bx-item-down .price{
+  color: var(--color-DeepGreen);
+}
+
+/* End ListItems Style */
